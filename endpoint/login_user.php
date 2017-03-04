@@ -4,7 +4,12 @@
 
     $post = json_decode(file_get_contents('php://input'), true);
     $userLogin = new userLoginHandler();
-    if(isset($post['Username']) && isset($post['Password']))
-        echo $userLogin->checkUser($post['Username'], $post['Password']);
+    $user;
+    if(isset($post['Username']))
+        $user = true;
+    elseif(isset($post['Email']))
+        $user = false;
+    if((isset($user)) && isset($post['Password']))
+        echo $userLogin->checkUser( $user ? $post['Username'] : $post['Email'], $post['Password'] );
 
 ?>

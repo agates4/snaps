@@ -5,7 +5,7 @@
         private $server = "localhost";
         private $user = "root";
         private $pass = "1BexWWL1Mh";
-        private $database = "diag";
+        private $database = "snaps";
         private $connection;
 
         function __construct() 
